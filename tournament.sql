@@ -8,13 +8,16 @@
 
 Drop DATABASE tournament;
 CREATE DATABASE tournament;
+
 \c tournament
+
 CREATE TABLE players (
     id SERIAL PRIMARY KEY,
     name varchar(50)
 );
 
 CREATE TABLE matches (
+    id SERIAL PRIMARY KEY,
     winner integer references players(id) ON DELETE CASCADE,
     loser integer references players(id) ON DELETE CASCADE
 );
